@@ -32,7 +32,7 @@ class NotizenAdapter (
      * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
      */
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var oImage: CardView = itemView.findViewById<CardView>(R.id.cardView)
+        var ocard: CardView = itemView.findViewById<CardView>(R.id.cardView)
         var clnotizitem: ConstraintLayout = itemView.findViewById(R.id.clnotiz_item)
         var notizname: TextView = itemView.findViewById<TextView>(R.id.tvTitle)
         val desc: TextView = itemView.findViewById(R.id.tvDesc)
@@ -51,8 +51,8 @@ class NotizenAdapter (
     }
 
     override fun onBindViewHolder(holder: NotizenViewHolder, position: Int) {
-//
-//        holder.itemView.tvTitle.text = dataset[position].title
+
+//        holder.notizname.text = dataset[position].title
 //
 //        holder.itemView.tvDesc.text = dataset[position].noteText
 //        holder.itemView.tvDateTime.text = dataset[position].dateTime

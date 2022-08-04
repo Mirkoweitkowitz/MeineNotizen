@@ -76,6 +76,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         // Inflate the layout for this fragment
         return binding.root
     }
+
     /**
      * Lifecycle Methode nachdem das View erstellt wurde
      *
@@ -98,7 +99,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 arrNotes =
                     try {
                         notizen.value as ArrayList<Notizen>
-                    }catch (ex: Exception){
+                    } catch (ex: Exception) {
                         null
                     }
 
@@ -110,7 +111,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // FAB CREATE NOTE FRAGMENT
         binding.fabCreateNoteBtn.setOnClickListener {
-//            replaceFragment(NeueNotizenFragment.newInstance(), true)
+            replaceFragment(NeueNotizenFragment.newInstance(), true)
         }
 
         binding.searchView.setOnQueryTextListener(object :
@@ -121,7 +122,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-
 
 
                 if (arrNotes != null) {
@@ -150,26 +150,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             replaceFragment(fragment, true)
         }
+    }
+
+    fun replaceFragment(fragment: Fragment, istransition: Boolean) {
+
+        val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
+
+        if (istransition) {
+            fragmentTransition.setCustomAnimations(
+                android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left
+            )
         }
-
-        fun replaceFragment(fragment: Fragment, istransition: Boolean) {
-
-            val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
-
-            if (istransition) {
-                fragmentTransition.setCustomAnimations(
-                    android.R.anim.slide_out_right,
-                    android.R.anim.slide_in_left
-                )
-            }
-            fragmentTransition.replace(R.id.homeFragment, fragment)
-                .addToBackStack(fragment.javaClass.simpleName)
-            fragmentTransition.commit()
-        }
+        fragmentTransition.replace(R.id.fragmentMain, fragment)
+            .addToBackStack(fragment.javaClass.simpleName)
+        fragmentTransition.commit()
+    }
 
 //        val dataset = loadrvdata()
 
 
-
-
-    }
+}

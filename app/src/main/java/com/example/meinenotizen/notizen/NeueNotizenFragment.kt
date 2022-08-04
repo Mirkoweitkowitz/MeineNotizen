@@ -31,11 +31,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class NeueNotizenFragment :  Fragment(),
+class NeueNotizenFragment :  Fragment(R.layout.fragment_neue_notizen),
     EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {
 
-    private lateinit var binding: FragmentNeueNotizenBinding
+
+    private val binding by viewBinding(FragmentNeueNotizenBinding::bind)
+//    private lateinit var binding: FragmentNeueNotizenBinding
 
     var selectedColor = "#3e434e"
     private var currentTime: String? = null
@@ -55,13 +57,13 @@ class NeueNotizenFragment :  Fragment(),
         noteId = requireArguments().getInt("noteId", -1)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_neue_notizen, container, false)
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        // Inflate the layout for this fragment
+//        return inflater.inflate(R.layout.fragment_neue_notizen, container, false)
+//    }
 
     companion object {
         @JvmStatic
@@ -75,7 +77,7 @@ class NeueNotizenFragment :  Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        initViews()
     }
     private fun initViews()  = binding.apply {
         if (noteId != -1) {

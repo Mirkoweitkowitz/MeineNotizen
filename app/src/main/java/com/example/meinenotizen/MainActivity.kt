@@ -21,6 +21,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.meinenotizen.databinding.ActivityMainBinding
 import com.example.meinenotizen.home.HomeFragment
+import com.example.meinenotizen.notizen.NeueNotizenFragment
 import com.google.android.material.tabs.TabLayout
 
 //const val TAG = "Firebase"
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         mainActivityViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        replaceFragment(HomeFragment.newInstance(), true)
+//        replaceFragment(HomeFragment.newInstance(), true)
 
         setSupportActionBar(binding.toolbar)
 
@@ -156,6 +157,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("CAM", ex.toString())
             }
         }
+        replaceFragment(HomeFragment.newInstance(), true)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -182,7 +184,7 @@ class MainActivity : AppCompatActivity() {
                 android.R.anim.slide_in_left
             )
         }
-        fragmentTransition.replace(R.id.homeFragment, fragment)
+        fragmentTransition.replace(R.id.fragmentMain, fragment)
             .addToBackStack(fragment.javaClass.simpleName)
         fragmentTransition.commit()
     }

@@ -33,23 +33,15 @@ import kotlin.coroutines.CoroutineContext
 /**
  * Fragment Notiz
  */
- class NotizenFragment : Fragment(R.layout.fragment_neue_notizen),CoroutineScope {
+ class NotizenFragment : Fragment(R.layout.fragment_notizen) {
 
 
     /** Bindet das XML-View mit der Klasse um auf die Elemente zugreifen zu können */
     private lateinit var binding: FragmentNotizenBinding
 
     /** Das ViewModel zu diesem Fragment */
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: NotizenViewModel by viewModels()
 
-    private lateinit var job: Job
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        job = Job()
-    }
 
     /**
      * Lifecycle Methode wenn das View erstellt wird
@@ -63,16 +55,12 @@ import kotlin.coroutines.CoroutineContext
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_neue_notizen, container, false)
-        binding= FragmentNotizenBinding.inflate(inflater)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notizen, container, false)
+//        binding= FragmentNotizenBinding.inflate(inflater)
 
         return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        job.cancel()
-    }
 
     /**
      * Lifecycle Methode nachdem das View erstellt wurde

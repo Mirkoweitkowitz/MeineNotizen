@@ -3,6 +3,7 @@ package com.example.meinenotizen.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meinenotizen.R
@@ -20,7 +21,7 @@ class KategorienAdapter : RecyclerView.Adapter<KategorienAdapter.KategorienViewH
     }
 
     override fun onBindViewHolder(holder: KategorienViewHolder, position: Int) {
-//
+
 //        holder.itemView.tvTitle.text = arrList[position].title
 //
 //        holder.itemView.tvDesc.text = arrList[position].noteText
@@ -49,6 +50,8 @@ class KategorienAdapter : RecyclerView.Adapter<KategorienAdapter.KategorienViewH
 //        holder.itemView.cardView.setOnClickListener {
 //            listener!!.onClicked(arrList[position].id!!)
 //        }
+
+
     }
     override fun getItemCount(): Int {
         try {
@@ -71,6 +74,7 @@ class KategorienAdapter : RecyclerView.Adapter<KategorienAdapter.KategorienViewH
     fun setOnClickListener(listener1: OnItemClickListener) {
         listener = listener1
     }
+
 
     inner class KategorienViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
