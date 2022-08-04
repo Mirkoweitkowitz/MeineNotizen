@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.meinenotizen.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_notizenFragment"
+            app:destination="@id/notizenFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_neueNotizenFragment"
+            app:destination="@id/neueNotizenFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notizDetailFragment"
+            app:destination="@id/notizDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vorschauFragment"
+            app:destination="@id/vorschauFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fireBaseLoginFragment"
+            app:destination="@id/fireBaseLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notizDetailFragment"
+        android:name="com.example.meinenotizen.detail.NotizDetailFragment"
+        android:label="fragment_notiz_detail"
+        tools:layout="@layout/fragment_notiz_detail" />
+    <fragment
+        android:id="@+id/neueNotizenFragment"
+        android:name="com.example.meinenotizen.notizen.NeueNotizenFragment"
+        android:label="fragment_neue_notizen"
+        tools:layout="@layout/fragment_neue_notizen" />
+    <fragment
+        android:id="@+id/notizenFragment"
+        android:name="com.example.meinenotizen.notizen.NotizenFragment"
+        android:label="fragment_notizen"
+        tools:layout="@layout/fragment_notizen" >
+        <action
+            android:id="@+id/action_notizenFragment_to_neueNotizenFragment"
+            app:destination="@id/neueNotizenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.meinenotizen.scanner.ScanFragment"
+        android:label="fragment_scan"
+        tools:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/vorschauFragment"
+        android:name="com.example.meinenotizen.detail.VorschauFragment"
+        android:label="fragment_vorschau"
+        tools:layout="@layout/fragment_vorschau" />
+    <dialog
+        android:id="@+id/colorFragment"
+        android:name="com.example.meinenotizen.color.ColorFragment"
+        android:label="ColorFragment" />
+    <fragment
+        android:id="@+id/fireBaseLoginFragment"
+        android:name="com.example.meinenotizen.firebase.FireBaseLoginFragment"
+        android:label="FireBaseLoginFragment" >
+        <action
+            android:id="@+id/action_fireBaseLoginFragment_to_fireBaseSignUpFragment"
+            app:destination="@id/fireBaseSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fireBaseSignUpFragment"
+        android:name="com.example.meinenotizen.firebase.FireBaseSignUpFragment"
+        android:label="fragment_fire_base_sign_up"
+        tools:layout="@layout/fragment_fire_base_sign_up" >
+        <action
+            android:id="@+id/action_fireBaseSignUpFragment_to_fireBaseLoginFragment"
+            app:destination="@id/fireBaseLoginFragment" />
+    </fragment>
+</navigation>

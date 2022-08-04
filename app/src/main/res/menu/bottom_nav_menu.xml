@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ExtraText">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/favorite_48px"
+            android:title="Favoriten" />
+        <item
+            android:id="@+id/notizenFragment"
+            android:icon="@drawable/notes_app_logo"
+            android:title="Archive" />
+        <item
+            android:id="@+id/scanFragment"
+            android:icon="@drawable/edit_48px"
+            android:title="@string/notiz" />
+        <item
+            android:id="@+id/vorschauFragment"
+            android:icon="@drawable/folder_shared_48px"
+            android:title="Share" />
+
+
+    </group>
+
+</menu>

@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">MeineNotizen</string>
+
+    <string name="tasks">Tasks</string>
+    <string name="snackbarok">OK</string>
+    <string name="storage_permission_text">This App Needs access to your Storage.</string>
+    <string name="search_notizen">Search Notizen</string>
+
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="zur_n_chsten_seite">zur nächsten seite</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="weiter">zur nächsten seite</string>
+    <string name="todo">TODO</string>
+    <string name="notizybackround">Notizybackround</string>
+    <string name="home">Home</string>
+    <string name="notiz">Notiz</string>
+    <string name="vorschau">Vorschau</string>
+    <string name="einstellung">Einstellung</string>
+    <string name="Ordner">Ordner</string>
+    <string name="notizen">Notiz</string>
+    <string name="notizybackround1">Notizybackround</string>
+    <string name="notizen_bearbeiten">Notizen Bearbeiten</string>
+    <string name="todo2">TODO</string>
+    <string name="ordner1">Ordner</string>
+    <string name="ordner2">Ordner</string>
+    <string name="login">Login</string>
+
+    <!--to toggle the open close button
+        of the navigation drawer-->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+    <string name="Favoriten">Home</string>
+    <string name="Archive">Ordner</string>
+    <string name="Notizen">Notizen</string>
+    <string name="Dokumente">Einstellung</string>
+    <string name="menu_share">Teilen</string>
+    <string name="scanner">Scanner</string>
+    <string name="Teilen">Scanner</string>
+
+    <!--    Cammera-->
+    <string name="ok_label">OK</string>
+    <string name="error_label">Error</string>
+    <string name="photo_saved">Photo has been saved to Camera</string>
+    <string name="next" />
+    <string name="previous" />
+
+    <!--    Ordner namen-->
+
+    <string-array name="ordner_array">
+        <item>dokumente</item>
+        <item>fotos</item>
+        <item>notizen</item>
+        <item>pdf</item>
+        <item>scanner</item>
+        <item>bearbeiten</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

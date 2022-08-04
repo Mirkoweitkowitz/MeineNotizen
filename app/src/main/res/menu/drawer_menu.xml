@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/notizenFragment"
+            android:icon="@drawable/ic_baseline_folder_24"
+            android:title="@string/notizen" />
+        <item
+            android:id="@+id/vorschauFragment"
+            android:icon="@drawable/ic_baseline_notes_24"
+            android:title="@string/vorschau" />
+        <item
+            android:id="@+id/colorFragment"
+            android:icon="@drawable/ic_baseline_color"
+            android:title="Colors" />
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share_48px"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/scanFragment"
+                android:icon="@drawable/ic_baseline_document_scanner_24"
+                android:title="Scanner" />
+
+
+        </menu>
+    </item>
+</menu>
