@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 class Notizen(
     @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
+    var id: Long = 0,
     var title: String,
     var noteText: String,
     var imgPath: String,

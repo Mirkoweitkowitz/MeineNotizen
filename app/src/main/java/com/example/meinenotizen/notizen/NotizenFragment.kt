@@ -7,12 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.view.DragStartHelper
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meinenotizen.OnDragStartListener
 import com.example.meinenotizen.R
 import com.example.meinenotizen.adapter.NotizenAdapter
 import com.example.meinenotizen.databinding.FragmentNotizenBinding
@@ -102,7 +102,7 @@ abstract class NotizenFragment : Fragment(R.layout.fragment_notizen),CoroutineSc
                 val adapter: NotizenAdapter = recyclerView.getAdapter() as NotizenAdapter
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
-                adapter.moveNotizenViewItem(from, to)
+//                adapter.moveNotizenViewItem(from, to)
                 adapter.notifyItemMoved(from, to)
                 return true
             }
@@ -135,11 +135,12 @@ abstract class NotizenFragment : Fragment(R.layout.fragment_notizen),CoroutineSc
         ) {
             println("here")
             println(it)
-            recyclerView.adapter = NotizenAdapter(it.toMutableList(), object : DragStartHelper.OnDragStartListener {
-                override fun onDragStart(holder: NotizenAdapter.ItemViewHolder?) {
-                    helper.startDrag(holder!!)
+            recyclerView.adapter = NotizenAdapter(it.toMutableList(), requireContext(),
+                object : OnDragStartListener {
+                    override fun onDragStart(holder: NotizenAdapter.ItemViewHolder?) {
+                        helper.startDrag(holder!!)
+                    }
                 }
-            }
             )
 
         }

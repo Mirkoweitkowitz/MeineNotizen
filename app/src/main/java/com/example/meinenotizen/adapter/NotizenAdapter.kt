@@ -8,36 +8,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.DragStartHelper
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meinenotizen.OnDragStartListener
 import com.example.meinenotizen.R
 import com.example.meinenotizen.data.Notizen
 
-class NotizenAdapter(
+class NotizenAdapter (
 
 
-    private var dataset: List<Notizen>,
-    private var draglistener: DragStartHelper.OnDragStartListener,
-    private var clicklistener: OnItemClickListener?
+
+    private var dataset: MutableList<Notizen>,
+    private val context: Context,
+    private var onDragListener: OnDragStartListener?
 
 ): RecyclerView.Adapter<NotizenAdapter.NotizenViewHolder>() {
+
 
     /**
      * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
      */
-    inner class NotizenViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var ocard: CardView = itemView.findViewById<CardView>(R.id.cardView)
-//        var clnotizitem: ConstraintLayout = itemView.findViewById(R.id.clnotiz_item)
-        var inote:ImageView = itemView.findViewById(R.id.imgNote)
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var oImage: CardView = itemView.findViewById<CardView>(R.id.cardView)
+        var clnotizitem: ConstraintLayout = itemView.findViewById(R.id.clnotiz_item)
         var notizname: TextView = itemView.findViewById<TextView>(R.id.tvTitle)
         val desc: TextView = itemView.findViewById(R.id.tvDesc)
         val datetime: TextView = itemView.findViewById(R.id.tvDateTime)
-        val web:TextView = itemView.findViewById(R.id.etWebLink)
         val noted: EditText = itemView.findViewById<EditText>(R.id.etNoteDesc)
         val noteT: EditText = itemView.findViewById<EditText>(R.id.etNoteTitle)
 
@@ -52,61 +51,63 @@ class NotizenAdapter(
     }
 
     override fun onBindViewHolder(holder: NotizenViewHolder, position: Int) {
-
-        holder.notizname.text = dataset[position].title
-
-        holder.desc.text = dataset[position].noteText
-        holder.datetime.text = dataset[position].dateTime
-
-        if (dataset[position].color != null) {
-            holder.ocard.setCardBackgroundColor(Color.parseColor(dataset[position].color))
-        } else {
-            null
-        }
-
-        if (dataset[position].imgPath != null) {
-            holder.inote.setImageBitmap(BitmapFactory.decodeFile(dataset[position].imgPath))
-            holder.inote.visibility = View.VISIBLE
-        } else {
-            holder.inote.visibility = View.GONE
-        }
-
-        if (dataset[position].webLink != null) {
-            holder.web.text = dataset[position].webLink
-            holder.web.visibility = View.VISIBLE
-        } else {
-            holder.web.visibility = View.GONE
-        }
-
-        holder.ocard.setOnClickListener {
+//
+//        holder.itemView.tvTitle.text = dataset[position].title
+//
+//        holder.itemView.tvDesc.text = dataset[position].noteText
+//        holder.itemView.tvDateTime.text = dataset[position].dateTime
+//
+//        if (dataset[position].color != null) {
+//            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(dataset[position].color))
+//        } else {
+//            null
+//        }
+//
+//        if (dataset[position].imgPath != null) {
+//            holder.itemView.imgNote.setImageBitmap(BitmapFactory.decodeFile(dataset[position].imgPath))
+//            holder.itemView.imgNote.visibility = View.VISIBLE
+//        } else {
+//            holder.itemView.imgNote.visibility = View.GONE
+//        }
+//
+//        if (dataset[position].webLink != null) {
+//            holder.itemView.tvWebLink.text = dataset[position].webLink
+//            holder.itemView.tvWebLink.visibility = View.VISIBLE
+//        } else {
+//            holder.itemView.tvWebLink.visibility = View.GONE
+//        }
+//
+//        holder.itemView.cardView.setOnClickListener {
 //            listener!!.onClicked(dataset[position].id!!)
-        }
+//        }
 
     }
 
-//    override fun getItemCount(): Int {
-//        try {
-//            return dataset!!.size
-//        } catch (ex: Exception) {
-//            return 0
-//        }
-//    }
+    override fun getItemCount(): Int {
+        try {
+            return dataset!!.size
+        } catch (ex: Exception) {
+            return 0
+        }
+    }
 
 
     fun setData(arrNotesList: LiveData<List<Notizen>>) {
         try {
-            dataset = arrNotesList.value as MutableList<Notizen>
+            dataset = arrNotesList.value as ArrayList<Notizen>
         } catch (ex: Exception) {
-            dataset = null !!
+//            dataset = null
         }
     }
 
 
-    fun setOnClickListener(listener1: OnItemClickListener) {
-        clicklistener = listener1
-    }
+//    OnClickListener onItemClicked
 
-//    inner class NotizenViewHolder(view: View) : RecyclerView.ViewHolder(view)
+//    fun setOnClickListener(listener1: OnItemClickListener) {
+//        onDragListener = listener1
+//    }
+
+    inner class NotizenViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     interface OnItemClickListener : AdapterView.OnItemClickListener {
         fun onClicked(notesId: Int)
@@ -118,17 +119,17 @@ class NotizenAdapter(
 //    /**
 //     * damit der LayoutManager weiß, wie lang die Liste ist
 //     */
-    override fun getItemCount(): Int {
-        return dataset.size
-    }
+//    override fun getItemCount(): Int {
+//        return dataset.size
+//    }
 
     fun moveNotizyViewItem(from: Int, to: Int) {
-        val notizenToMove: Notizen = dataset.get(from)
+        val notizyToMove: Notizen = dataset.get(from)
         dataset.removeAt(from)
         if (to < from) {
-            dataset.add(to, notizenToMove)
+            dataset.add(to, notizyToMove)
         } else {
-            dataset.add(to - 1, notizenToMove)
+            dataset.add(to - 1, notizyToMove)
         }
     }
 }

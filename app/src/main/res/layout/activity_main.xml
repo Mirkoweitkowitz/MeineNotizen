@@ -40,7 +40,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_centerInParent="true"
-                    android:layout_marginStart="340dp"
+                    android:layout_marginStart="280dp"
                     android:layout_marginTop="4dp"
                     android:background="#808DE724"
                     android:contentDescription="TODO"

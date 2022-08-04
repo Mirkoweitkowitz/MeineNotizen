@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.382" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_color.xml" value="0.5265625" />
         <entry key="app/src/main/res/layout/fragment_fire_base_login.xml" value="0.509375" />
         <entry key="app/src/main/res/layout/fragment_fire_base_sign_up.xml" value="0.5265625" />

@@ -29,7 +29,7 @@ interface NotizenDao {
     fun getById(key: Long): LiveData<Notizen>
 
     @Query("DELETE from Notizen WHERE id = :id")
-    suspend fun deleteById(id: Int)
+    suspend fun deleteById(id: Long)
 
     @Query("DELETE from Notizen")
     suspend fun deleteAll()

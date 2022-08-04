@@ -10,7 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.meinenotizen.MainViewModel
 import com.example.meinenotizen.R
+import com.example.meinenotizen.adapter.KategorienAdapter
 import com.example.meinenotizen.adapter.NotizenAdapter
 import com.example.meinenotizen.data.Notizen
 import com.example.meinenotizen.data.NotizenDataBase
@@ -34,6 +36,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
 
     var arrNotes: ArrayList<Notizen>? = null
+    var kategorienAdapter: KategorienAdapter = KategorienAdapter()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +46,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment HomeFragment.
-     */
     companion object {
         @JvmStatic
         fun newInstance() =
@@ -79,7 +76,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         // Inflate the layout for this fragment
         return binding.root
     }
-
     /**
      * Lifecycle Methode nachdem das View erstellt wurde
      *
@@ -93,20 +89,28 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.recyclerViewHome.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            context?.let {
 
+                val notizen = NotizenDataBase.getDataBase(it).notizenDao().getAll()
 
-        viewModel.notizenList.observe(
-            viewLifecycleOwner
-        ) {
+                kategorienAdapter.setData(notizen)
+                arrNotes =
+                    try {
+                        notizen.value as ArrayList<Notizen>
+                    }catch (ex: Exception){
+                        null
+                    }
 
+                binding.recyclerViewHome.adapter = kategorienAdapter
+            }
         }
 
-
-
+        kategorienAdapter.setOnClickListener(onClicked)
 
         // FAB CREATE NOTE FRAGMENT
         binding.fabCreateNoteBtn.setOnClickListener {
-            replaceFragment(NeueNotizenFragment.newInstance(), true)
+//            replaceFragment(NeueNotizenFragment.newInstance(), true)
         }
 
         binding.searchView.setOnQueryTextListener(object :
@@ -119,6 +123,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             override fun onQueryTextChange(p0: String?): Boolean {
 
 
+
                 if (arrNotes != null) {
                     for (arr in arrNotes!!) {
                         if (arr.title!!.toLowerCase(Locale.getDefault()).contains(p0.toString())) {
@@ -127,14 +132,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     }
                 }
 
-                notizenAdapter.notifyDataSetChanged()
+                kategorienAdapter.notifyDataSetChanged()
                 return true
             }
         })
         viewModel.resetAllValues()
     }
 
-    private val onClicked = object : NotizenAdapter.OnItemClickListener {
+    private val onClicked = object : KategorienAdapter.OnItemClickListener {
         override fun onClicked(notesId: Int) {
 
             val fragment: Fragment
@@ -145,24 +150,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             replaceFragment(fragment, true)
         }
-    }
-
-    fun replaceFragment(fragment: Fragment, istransition: Boolean) {
-
-        val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
-
-        if (istransition) {
-            fragmentTransition.setCustomAnimations(
-                android.R.anim.slide_out_right,
-                android.R.anim.slide_in_left
-            )
         }
-        fragmentTransition.replace(R.id.fragmentMain, fragment)
-            .addToBackStack(fragment.javaClass.simpleName)
-        fragmentTransition.commit()
+
+        fun replaceFragment(fragment: Fragment, istransition: Boolean) {
+
+            val fragmentTransition = requireActivity().supportFragmentManager.beginTransaction()
+
+            if (istransition) {
+                fragmentTransition.setCustomAnimations(
+                    android.R.anim.slide_out_right,
+                    android.R.anim.slide_in_left
+                )
+            }
+            fragmentTransition.replace(R.id.homeFragment, fragment)
+                .addToBackStack(fragment.javaClass.simpleName)
+            fragmentTransition.commit()
+        }
+
+//        val dataset = loadrvdata()
+
+
+
+
     }
-
-//        val dataset = Datasource().loadrvdata()
-
-
-}

@@ -91,17 +91,17 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.notizenFragment -> {
-                    println("Ordner Fragment clicked")
+                    println("Notizen Fragment clicked")
                     navController.navigate(R.id.notizenFragment)
                     true
                 }
                 R.id.scanFragment -> {
-                    println("Notiz Fragment clicked")
+                    println("Scan Fragment clicked")
                     navController.navigate(R.id.scanFragment)
                     true
                 }
                 R.id.colorFragment -> {
-                    println("Einstellung Fragment clicked")
+                    println("Color Fragment clicked")
                     navController.navigate(R.id.colorFragment)
                     true
                 }
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                                 action = Intent.ACTION_SEND
                                 putExtra(
                                     Intent.EXTRA_TEXT,
-                                    "Ich möchte den Ordner  $detailText gefunden :)"
+                                    "Ich möchte die PDf oder Foto  $detailText mit dir Teilen :)"
                                 )
                                 type = "text/plain"
                             }, null
@@ -182,7 +182,7 @@ class MainActivity : AppCompatActivity() {
                 android.R.anim.slide_in_left
             )
         }
-        fragmentTransition.replace(R.id.fragmentMain, fragment)
+        fragmentTransition.replace(R.id.homeFragment, fragment)
             .addToBackStack(fragment.javaClass.simpleName)
         fragmentTransition.commit()
     }
