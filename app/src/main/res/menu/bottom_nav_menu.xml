@@ -10,17 +10,17 @@
             android:icon="@drawable/favorite_48px"
             android:title="Favoriten" />
         <item
-            android:id="@+id/notizenFragment"
-            android:icon="@drawable/notes_app_logo"
+            android:id="@+id/colorFragment"
+            android:icon="@drawable/ic_baseline_color"
             android:title="Archive" />
         <item
-            android:id="@+id/scanFragment"
+            android:id="@+id/notizenFragment"
             android:icon="@drawable/edit_48px"
-            android:title="@string/notiz" />
+            android:title="@string/notizen" />
         <item
             android:id="@+id/vorschauFragment"
-            android:icon="@drawable/folder_shared_48px"
-            android:title="Share" />
+            android:icon="@drawable/folder_48px"
+            android:title="Vorschau" />
 
 
     </group>

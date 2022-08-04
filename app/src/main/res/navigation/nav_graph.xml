@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_homeFragment_to_fireBaseLoginFragment"
             app:destination="@id/fireBaseLoginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_neueNotizenFragment2"
+            app:destination="@id/neueNotizenFragment" />
     </fragment>
     <fragment
         android:id="@+id/notizDetailFragment"
@@ -41,7 +44,14 @@
         android:id="@+id/neueNotizenFragment"
         android:name="com.example.meinenotizen.notizen.NeueNotizenFragment"
         android:label="fragment_neue_notizen"
-        tools:layout="@layout/fragment_neue_notizen" />
+        tools:layout="@layout/fragment_neue_notizen" >
+        <action
+            android:id="@+id/action_neueNotizenFragment_to_notizenFragment"
+            app:destination="@id/notizenFragment" />
+        <action
+            android:id="@+id/action_neueNotizenFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notizenFragment"
         android:name="com.example.meinenotizen.notizen.NotizenFragment"
@@ -50,17 +60,28 @@
         <action
             android:id="@+id/action_notizenFragment_to_neueNotizenFragment"
             app:destination="@id/neueNotizenFragment" />
+        <action
+            android:id="@+id/action_notizenFragment_to_notizDetailFragment"
+            app:destination="@id/notizDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.example.meinenotizen.scanner.ScanFragment"
         android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_vorschauFragment"
+            app:destination="@id/vorschauFragment" />
+    </fragment>
     <fragment
         android:id="@+id/vorschauFragment"
         android:name="com.example.meinenotizen.detail.VorschauFragment"
         android:label="fragment_vorschau"
-        tools:layout="@layout/fragment_vorschau" />
+        tools:layout="@layout/fragment_vorschau" >
+        <action
+            android:id="@+id/action_vorschauFragment_to_notizenFragment"
+            app:destination="@id/notizenFragment" />
+    </fragment>
     <dialog
         android:id="@+id/colorFragment"
         android:name="com.example.meinenotizen.color.ColorFragment"

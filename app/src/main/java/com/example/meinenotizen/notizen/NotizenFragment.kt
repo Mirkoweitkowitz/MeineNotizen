@@ -33,7 +33,7 @@ import kotlin.coroutines.CoroutineContext
 /**
  * Fragment Notiz
  */
-abstract class NotizenFragment : Fragment(R.layout.fragment_notizen),CoroutineScope {
+ class NotizenFragment : Fragment(R.layout.fragment_neue_notizen),CoroutineScope {
 
 
     /** Bindet das XML-View mit der Klasse um auf die Elemente zugreifen zu können */
@@ -63,7 +63,8 @@ abstract class NotizenFragment : Fragment(R.layout.fragment_notizen),CoroutineSc
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notizen, container, false)
+//        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_neue_notizen, container, false)
+        binding= FragmentNotizenBinding.inflate(inflater)
 
         return binding.root
     }

@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class NeueNotizenFragment :  Fragment(R.layout.fragment_neue_notizen),
+class NeueNotizenFragment :  Fragment(),
     EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {
 
@@ -75,9 +75,9 @@ class NeueNotizenFragment :  Fragment(R.layout.fragment_neue_notizen),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initViews()
+
     }
-    private fun initViews() = binding.apply {
+    private fun initViews()  = binding.apply {
         if (noteId != -1) {
 
             viewLifecycleOwner.lifecycleScope.launchWhenCreated {

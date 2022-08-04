@@ -15,23 +15,19 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="zur_n_chsten_seite">zur nächsten seite</string>
     <string name="title_activity_main2">MainActivity2</string>
-    <string name="title_home">Home</string>
+<!--    <string name="title_home">Home</string>-->
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="weiter">zur nächsten seite</string>
     <string name="todo">TODO</string>
     <string name="notizybackround">Notizybackround</string>
-    <string name="home">Home</string>
-    <string name="notiz">Notiz</string>
+<!--    <string name="home">Home</string>-->
+    <string name="notizen">Notizen</string>
     <string name="vorschau">Vorschau</string>
     <string name="einstellung">Einstellung</string>
-    <string name="Ordner">Ordner</string>
-    <string name="notizen">Notiz</string>
     <string name="notizybackround1">Notizybackround</string>
     <string name="notizen_bearbeiten">Notizen Bearbeiten</string>
     <string name="todo2">TODO</string>
-    <string name="ordner1">Ordner</string>
-    <string name="ordner2">Ordner</string>
     <string name="login">Login</string>
 
     <!--to toggle the open close button
@@ -39,7 +35,7 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
 
-    <string name="Favoriten">Home</string>
+    <string name="favoriten">Favoriten</string>
     <string name="Archive">Ordner</string>
     <string name="Notizen">Notizen</string>
     <string name="Dokumente">Einstellung</string>
