@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Notizen::class], version = 2, exportSchema = false)
+@Database(entities = [Notizen::class], version = 1)
 abstract class NotizenDataBase : RoomDatabase() {
 
     companion object{
