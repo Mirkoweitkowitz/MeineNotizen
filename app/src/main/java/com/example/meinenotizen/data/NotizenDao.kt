@@ -31,6 +31,7 @@ interface NotizenDao {
     @Query("DELETE from Notizen WHERE id = :id")
     suspend fun deleteById(id: Long)
 
+
     @Query("DELETE from Notizen")
     suspend fun deleteAll()
 }
