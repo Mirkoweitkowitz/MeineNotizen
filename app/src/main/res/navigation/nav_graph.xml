@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/notizenFragment">
 
     <fragment
         android:id="@+id/notizDetailFragment"
@@ -42,6 +42,15 @@
         <action
             android:id="@+id/action_notizenFragment_to_neueNotizenFragment2"
             app:destination="@id/neueNotizenFragment" />
+        <action
+            android:id="@+id/action_notizenFragment_to_fireBaseLoginFragment"
+            app:destination="@id/fireBaseLoginFragment" />
+        <action
+            android:id="@+id/action_notizenFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
+        <action
+            android:id="@+id/action_notizenFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanFragment"
@@ -85,28 +94,5 @@
         <action
             android:id="@+id/action_fireBaseSignUpFragment_to_fireBaseLoginFragment"
             app:destination="@id/fireBaseLoginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.meinenotizen.home.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_notizenFragment"
-            app:destination="@id/notizenFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_neueNotizenFragment"
-            app:destination="@id/neueNotizenFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_scanFragment"
-            app:destination="@id/scanFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_vorschauFragment"
-            app:destination="@id/vorschauFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_fireBaseLoginFragment"
-            app:destination="@id/fireBaseLoginFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_colorFragment"
-            app:destination="@id/colorFragment" />
     </fragment>
 </navigation>

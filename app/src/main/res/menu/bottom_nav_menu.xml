@@ -5,22 +5,15 @@
     tools:ignore="ExtraText">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/homeFragment"
-            android:icon="@drawable/favorite_48px"
-            android:title="Favoriten" />
-        <item
-            android:id="@+id/colorFragment"
-            android:icon="@drawable/ic_baseline_color"
-            android:title="Archive" />
+
         <item
             android:id="@+id/notizenFragment"
             android:icon="@drawable/edit_48px"
             android:title="@string/notizen" />
         <item
-            android:id="@+id/vorschauFragment"
+            android:id="@+id/scanFragment"
             android:icon="@drawable/folder_48px"
-            android:title="Vorschau" />
+            android:title="Scanner" />
 
 
     </group>

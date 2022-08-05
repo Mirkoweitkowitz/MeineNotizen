@@ -236,7 +236,7 @@ class NeueNotizenFragment :  Fragment(R.layout.fragment_neue_notizen),
             }
             else -> {
                 viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-                    val notes = Notizen(0,"","","","","Syntax","20.07.2022")
+                    val notes = Notizen()
                     notes.title = etNoteTitle?.text.toString()
                     notes.noteText = etNoteDesc?.text.toString()
                     notes.dateTime = currentTime.toString()

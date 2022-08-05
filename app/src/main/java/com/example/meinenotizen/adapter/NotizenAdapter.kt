@@ -52,7 +52,7 @@ class NotizenAdapter (
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
 
         val itemLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_notizen, parent, false)
+            .inflate(R.layout.item_rv_notizen, parent, false)
 
         return ItemViewHolder(itemLayout)
 
@@ -65,12 +65,12 @@ class NotizenAdapter (
         val notizen = dataset[position]
 
         // baue eine URI aus der Bild URL
-        val imgUri = notizen.webLink.toUri().buildUpon().scheme("https").build()
+        val imgUri = notizen.webLink?.toUri()?.buildUpon()?.scheme("https")?.build()
 
         // lade das Bild mithilfe der URI in die ImageView und runde die Ecken ab
 
         holder.clnotizitem.setOnClickListener {
-            Log.e("AAA", dataset[position].title)
+            Log.e("AAA", dataset[position].title!!)
         }
 
         try {
@@ -139,9 +139,9 @@ class NotizenAdapter (
 //    /**
 //     * damit der LayoutManager weiß, wie lang die Liste ist
 //     */
-    override fun getItemCount(): Int {
-        return dataset.size
-    }
+//    override fun getItemCount(): Int {
+//        return dataset.size
+//    }
 
     fun moveNotizyViewItem(from: Int, to: Int) {
         val notizenToMove: Notizen = dataset.get(from)

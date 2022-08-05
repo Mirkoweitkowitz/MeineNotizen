@@ -1,21 +1,34 @@
 package com.example.meinenotizen.data
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
-class Notizen(
+@Entity(tableName = "Notizen")
+class Notizen {
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
-    var title: String,
-    var noteText: String,
-    var imgPath: String,
-    var dateTime: String,
-    var webLink: String,
-    var color: String,
+    var id: Int? = null
 
-    ) {
+    @ColumnInfo(name = "title")
+    var title: String? = null
+
+    @ColumnInfo(name = "date_time")
+    var dateTime: String? = null
+
+    @ColumnInfo(name = "note_text")
+    var noteText: String? = null
+
+    @ColumnInfo(name = "img_path")
+    var imgPath: String? = null
+
+    @ColumnInfo(name = "web_link")
+    var webLink: String? = null
+
+    @ColumnInfo(name = "color")
+    var color: String? = null
+
+
     override fun toString(): String {
         return "$title : $dateTime"
     }

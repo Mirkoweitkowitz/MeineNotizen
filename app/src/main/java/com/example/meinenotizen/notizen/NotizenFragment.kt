@@ -55,8 +55,8 @@ import kotlin.coroutines.CoroutineContext
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notizen, container, false)
-        binding= FragmentNotizenBinding.inflate(inflater)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notizen, container, false)
+//        binding= FragmentNotizenBinding.inflate(inflater)
 
         return binding.root
     }
@@ -91,7 +91,7 @@ import kotlin.coroutines.CoroutineContext
                 val adapter: NotizenAdapter = recyclerView.getAdapter() as NotizenAdapter
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
-                adapter.moveNotizenViewItem(from, to)
+//                adapter.moveNotizenViewItem(from, to)
                 adapter.notifyItemMoved(from, to)
                 return true
             }

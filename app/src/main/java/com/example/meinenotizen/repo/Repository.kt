@@ -52,7 +52,7 @@ class Repository (private val database: NotizenDataBase, private val api: UserAp
 
     suspend fun delete(notizy: Notizen) {
         try {
-            database.notizenDao().deleteById(notizy.id)
+            database.notizenDao().deleteById(notizy.id!!.toLong())
         } catch (e: Exception) {
             Log.e(TAG, "Failed to delete from Database: $e")
         }

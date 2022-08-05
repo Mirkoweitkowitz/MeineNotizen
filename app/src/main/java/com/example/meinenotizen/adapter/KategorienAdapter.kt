@@ -3,7 +3,6 @@ package com.example.meinenotizen.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meinenotizen.R
@@ -16,7 +15,7 @@ class KategorienAdapter : RecyclerView.Adapter<KategorienAdapter.KategorienViewH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KategorienViewHolder {
         return KategorienViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.fragment_notizen, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_rv_notizen, parent, false)
         )
     }
 
